@@ -6,9 +6,12 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:46:03 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/11/22 15:55:26 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:49:53 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+#include <unistd.h>
 
 void	push_a(t_list **lsta, t_list **lstb)
 {

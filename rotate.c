@@ -6,9 +6,13 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:46:11 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/11/22 15:47:45 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:58:16 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+#include <stddef.h>
+#include <unistd.h>
 
 // Rotate a
 	//1. On fait pointer le dernier noeud vers le premier.

@@ -6,7 +6,7 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:42:29 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/11/28 18:46:57 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/06 20:04:50 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,20 @@ void	print_lst(const t_list *lst)
 		return ;
 	while (current != NULL)
 	{
-		printf("%d (%d)\n", current->content, current->index);
+		printf("from print_lst():%d (%d)\n", current->content, current->index);
 		current = current->next;
 	}
+}
+
+void	print_node(const t_list *lst)
+{
+	const t_list	*current;
+
+	current = lst;
+	if (!lst)
+		return ;
+
+	printf("from print_node(): %d (%d)\n", current->content, current->index);
 }
 
 // #include <stdlib.h>
@@ -88,20 +99,23 @@ du coup quand je push le noeud de b vers a il y a deux index 1.
 int	main(void)
 {
 	t_list	*lsta = NULL;
+	// t_list	*lstb = NULL;
 
 	add_node(&lsta, 5);
-	add_node(&lsta, 13);
-	add_node(&lsta, 24);
-	add_node(&lsta, 18);
+	add_node(&lsta, 4);
+	add_node(&lsta, 9);
+	add_node(&lsta, 6);
+	add_node(&lsta, 8);
 
+	define_list_index(&lsta);
 	printf("Voici la liste : \n");
 	print_lst(lsta);
 	printf("\n");
 
-	define_list_index(&lsta);
+	print_node(find_smallest_index(&lsta));
+	up_node(&lsta);
 	printf("\nVoici la liste apres les modifications : \n");
 	print_lst(lsta);
 	write(1, "\n", 1);
-	printf("%d\n", find_smallest(&lsta));
 	return (0);
 }

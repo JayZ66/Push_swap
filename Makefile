@@ -6,11 +6,12 @@
 #    By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 10:44:26 by jeguerin          #+#    #+#              #
-#    Updated: 2023/11/16 10:50:00 by jeguerin         ###   ########.fr        #
+#    Updated: 2023/12/04 12:00:30 by jeguerin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = push_swap.c instructions.c
+SRCS = algorithm.c count_strokes.c handle_numbers.c index.c main.c push.c /
+		reverse_rotate.c rotate.c swap.c utils.c
 
 
 CC = gcc

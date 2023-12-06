@@ -6,7 +6,7 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:07:54 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/12/01 17:08:30 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:38:01 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,4 @@ int	count_rra(t_list **lst, int content) // Decale tout vers le bas.
 	result = (size - count) + 1; // +1 car on doit envoyer le dernier de la lst en haut.
 	return (result);
 }
+

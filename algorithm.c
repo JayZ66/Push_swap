@@ -6,15 +6,15 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:58:16 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/12/01 17:08:30 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:11:58 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	len_num(int nb)
+int len_num(int nb)
 {
-	int	count;
+	int count;
 
 	count = 0;
 	if (nb == 0 || nb == 1)
@@ -30,11 +30,11 @@ int	len_num(int nb)
 }
 
 // atoi > Pour convertir les arguments et refoutre dans une liste.
-int	ft_atoi(char *str)
+int ft_atoi(char *str)
 {
-	int			i;
-	int			sign;
-	long int	result;
+	int i;
+	int sign;
+	long int result;
 
 	i = 0;
 	sign = 1;
@@ -61,10 +61,10 @@ int	ft_atoi(char *str)
 // => Check dans une autre fonction si atoi renvoie bien "-1" en tant que nb,
 // ou s'il renvoie -1 en sortie d'erreur. Donc faire un strncmp.
 
-int	lst_size(t_list **lst)
+int lst_size(t_list **lst)
 {
-	t_list	*temp;
-	int		count;
+	t_list *temp;
+	int count;
 
 	if (!(*lst) || !lst)
 		return (0);
@@ -78,10 +78,10 @@ int	lst_size(t_list **lst)
 	return (count);
 }
 
-int	find_smallest(t_list **lst)
+int find_smallest(t_list **lst)
 {
-	int		min;
-	t_list	*current;
+	int min;
+	t_list *current;
 
 	if (!(*lst) || !lst)
 		return (0);
@@ -96,9 +96,9 @@ int	find_smallest(t_list **lst)
 	return (min);
 }
 
-t_list	*new_node(void *content)
+t_list *new_node(void *content)
 {
-	t_list	*lst;
+	t_list *lst;
 
 	lst = (t_list *)malloc(sizeof(t_list));
 	if (!lst)
@@ -108,7 +108,7 @@ t_list	*new_node(void *content)
 	return (lst);
 }
 
-t_list	*lst_last(t_list *lst)
+t_list *lst_last(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -117,12 +117,12 @@ t_list	*lst_last(t_list *lst)
 	return (lst);
 }
 
-void	lst_add_back(t_list **lst, t_list *new)
+void lst_add_back(t_list **lst, t_list *new)
 {
-	t_list	*last;
+	t_list *last;
 
 	if (!(lst))
-		return ;
+		return;
 	if (!(*lst))
 		*lst = new;
 	else
@@ -132,11 +132,11 @@ void	lst_add_back(t_list **lst, t_list *new)
 	}
 }
 
-t_list	*fill_lst(t_list **lst, int ac, char **av)
+t_list *fill_lst(t_list **lst, int ac, char **av)
 {
-	int		i;
-	t_list	*new;
-	t_list	*tmp;
+	int i;
+	t_list *new;
+	t_list *tmp;
 
 	i = 1;
 	tmp = *lst;
@@ -148,46 +148,40 @@ t_list	*fill_lst(t_list **lst, int ac, char **av)
 		ac--;
 		i++;
 	}
-	return(*lst);
+	return (*lst);
 }
 
-
 mettre_en_haut(elem, pile)
-	nbre_ra = count_ra(elem, pa) // Combien de coups ra pour monter.
-		nbre_rra = count_rra(elem, pa) //Cb de coups rra pour monter.
-		if nbrra > nbbbb
-			while nbrera--
-				ra(pa)
-		if n
-			while nbrera--
-				rra(pa)
+	nbre_ra = count_ra(elem, pa)   // Combien de coups ra pour monter.
+	nbre_rra = count_rra(elem, pa) // Cb de coups rra pour monter.
+			   if nbrra
+			   > nbbbb
+			   while nbrera-- ra(pa) if n
+			   while nbrera-- rra(pa)
 
+				   algo_3_nbre(pa, pb)...
 
-algo_3_nbre(pa, pb)
-	...
+			   algo_simple(pa, pb)
+			   // while(size(pa) > 0)
+			   while (!est_trie(pa))
+				   elem = find_smallest(pa)
+				   mettre_en_haut(elem, pile)
+					   pb() while (pile_size(b) > 0)
+						   pa
 
-algo_simple(pa, pb)
-	//while(size(pa) > 0)
-	while(!est_trie(pa))
-			elem = find_smallest(pa)
-			mettre_en_haut(elem, pile)
-			pb()
-	while(pile_size(b) > 0)
-		pa
-
-//Nombre de tours pour le trie : nombre d'elements dans ta pile * le + grand nb
-// Trie : Les nb finissant par 1 dans la pile b et le reste pile a.
-// Tu mets ensuite la pile b dans la pile a (push vers le bas).
-// Si tu as 2/3 nombres, cas special qu'il faut gerer a la main.
-// Fonction qui regarde si la pile est triee.
-// Fonction qui cherche le plus grand dans la pile a, l'envoie en haut et le switch dans pile b.
+// Nombre de tours pour le trie : nombre d'elements dans ta pile * le + grand nb
+//  Trie : Les nb finissant par 1 dans la pile b et le reste pile a.
+//  Tu mets ensuite la pile b dans la pile a (push vers le bas).
+//  Si tu as 2/3 nombres, cas special qu'il faut gerer a la main.
+//  Fonction qui regarde si la pile est triee.
+//  Fonction qui cherche le plus grand dans la pile a, l'envoie en haut et le switch dans pile b.
 
 // WARNING : Gerer si UN ARG. contient tous les nbs avec un esp. entre chq.
 // => FAIRE SPLIT ET COUNTWORDS.
 
 #include <stdio.h>
 
-int	main()
+	int main()
 {
 	printf("%d\n", len_num(0));
 	return (0);
