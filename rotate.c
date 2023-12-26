@@ -6,13 +6,11 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:46:11 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/12/04 18:58:16 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:23:44 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stddef.h>
-#include <unistd.h>
 
 // Rotate a
 	//1. On fait pointer le dernier noeud vers le premier.
@@ -27,7 +25,7 @@ void	rotate_a(t_list **lsta, int print)
 	if (!(*lsta) || !(*lsta)->next)
 		return ;
 	first_to_last = *lsta;
-	second_to_last = lst_last(lsta);
+	second_to_last = lst_last(*lsta);
 	*lsta = first_to_last->next;
 	second_to_last->next = first_to_last;
 	first_to_last->next = NULL;
@@ -44,7 +42,7 @@ void	rotate_b(t_list	**lstb, int print)
 	if (!(*lstb) || !(*lstb)->next)
 		return ;
 	first_to_last = (*lstb);
-	second_to_last = lst_last(lstb);
+	second_to_last = lst_last(*lstb);
 	(*lstb) = first_to_last->next;
 	second_to_last->next = first_to_last;
 	first_to_last->next = NULL;

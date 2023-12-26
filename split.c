@@ -6,7 +6,7 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:58:49 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/12/04 16:56:58 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/22 08:55:17 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	count_words(char *str)
 	count = 0;
 	while (str[i])
 	{
-		while (str[i] && str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
+		while (str[i] && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'))
 			i++;
-		if (!(str[i] == ' ' || str[i] == '\n' || str[i] '\t'))
+		if (!(str[i] == ' ' || str[i] == '\n' || str[i]== '\t'))
 			count++;
 		while (str[i] && !(str[i] == ' ' || str[i] == '\n' || str[i] == '\t'))
 			i++;
@@ -57,9 +57,9 @@ char	**ft_split(char *str)
 	i = 0;
 	word = 0;
 	j = 0;
-	new = (char **)malloc(sizeof(char *) * (count_words(str[i]) + 1));
+	new = (char **)malloc(sizeof(char *) * (count_words(str) + 1));
 	if (!new)
-		return (NULL);
+		return (NULL); // No need to free, bcse if it failed, there's no malloc.
 	while (str[i])
 	{
 		while (str[i] && str[i]
@@ -72,20 +72,19 @@ char	**ft_split(char *str)
 		{
 			new[word] = (char *)malloc(sizeof(char) * ((i - j) + 1));
 			if (!new[word])
-				return (NULL); // Pas free toutes les sous-chaines ??
+			{
+				while (word >= 0)
+				{
+					free(new[word]);
+					word--;
+				}
+				free(new);
+				return (NULL);
+			}
 			ft_strncpy(new[word], &str[j], i - j);
 			word++;
 		}
 	}
 	new[word] = NULL;
 	return (new);
-}
-
-#include <stdio.h>
-
-int	main()
-{
-    char **result = ft_split("  HelloWorldSplitTest");
-    printf("%s\n", *result);
-    return 0;
 }

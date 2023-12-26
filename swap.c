@@ -6,12 +6,11 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:45:51 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/12/06 19:47:50 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:15:02 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
 
 // void swap_a(t_list **lsta, int print)
 // {

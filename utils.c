@@ -6,31 +6,17 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:43:59 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/11/22 15:45:19 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:00:49 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-void	del_node(t_list **lst)
-{
-	t_list	*temp;
-
-	if (!(*lst))
-		return ;
-	temp = (*lst)->next;
-	free(*lst);
-	*lst = temp;
-}
 
 
 // Fonction de trie : Va assigner le premier index au nb le plus petit
 // (index 0 = -10, index 1 = -2, etc.)
 
-size_t	list_size(t_list *lst)
+int	lst_size(t_list *lst)
 {
 	size_t	length;
 
@@ -57,14 +43,68 @@ t_list	*lst_second_to_last(t_list **lst)
 	return (temp);
 }
 
-t_list	*lst_last(t_list **lst)
-{
-	t_list	*temp;
+// t_list	*lst_last(t_list **lst)
+// {
+// 	t_list	*temp;
 
-	temp = (*lst);
-	if (!(*lst))
+// 	temp = (*lst);
+// 	if (!(*lst))
+// 		return (NULL);
+// 	while (temp->next)
+// 		temp = temp->next;
+// 	return (temp);
+// }
+
+t_list	*lst_last(t_list *lst)
+{
+	if (!lst)
 		return (NULL);
-	while (temp->next)
-		temp = temp->next;
-	return (temp);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
+void	lst_add_back(t_list **lst, t_list *new)
+{
+	t_list *last;
+
+	if (!(lst))
+		return;
+	if (!(*lst))
+		*lst = new;
+	else
+	{
+		last = lst_last(*lst);
+		last->next = new;
+	}
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(char *str)
+{
+	int		i;
+	char	*dest;
+	int		size;
+
+	i = 0;
+	size = ft_strlen(str);
+	dest = (char *)malloc(sizeof(char) * (size + 1));
+	if (!dest)
+		return (NULL);
+	while (str[i])
+	{
+		dest[i] = str[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
