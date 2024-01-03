@@ -6,38 +6,11 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 09:02:11 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/12/26 09:40:55 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/29 09:26:27 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	del_node(t_list	**lst) // Necessaire de faire un temp ?
-{
-	t_list* temp;
-
-	if (!(*lst))
-		return;
-	temp = (*lst)->next;
-	free(*lst);
-	*lst = temp;
-}
-
-// void	del_nodes(t_list** lst)
-// {
-// 	t_list* temp;
-// 	t_list* current;
-
-
-// 	current = *lst;
-// 	while (current)
-// 	{
-// 		temp = current;
-// 		current = current->next;
-// 		free(temp);
-// 	}
-// 	*lst = NULL;
-// }
 
 void	del_nodes(t_list **lst)
 {
@@ -53,8 +26,16 @@ void	del_nodes(t_list **lst)
 	*lst = NULL;
 }
 
-/*
-Free memory :
-- Fonction free nodes
-- Fonction free list
-*/
+void	ft_free_array(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return ;
+}

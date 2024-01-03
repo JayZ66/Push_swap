@@ -6,15 +6,11 @@
 /*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:43:59 by jeguerin          #+#    #+#             */
-/*   Updated: 2023/12/26 16:00:49 by jeguerin         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:40:37 by jeguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-// Fonction de trie : Va assigner le premier index au nb le plus petit
-// (index 0 = -10, index 1 = -2, etc.)
 
 int	lst_size(t_list *lst)
 {
@@ -33,7 +29,7 @@ int	lst_size(t_list *lst)
 
 t_list	*lst_second_to_last(t_list **lst)
 {
-	t_list	*temp; // Des qu'on itere dans la liste il faut un tmp.
+	t_list	*temp;
 
 	temp = *lst;
 	if (!(*lst) || !(*lst)->next)
@@ -42,18 +38,6 @@ t_list	*lst_second_to_last(t_list **lst)
 		temp = temp->next;
 	return (temp);
 }
-
-// t_list	*lst_last(t_list **lst)
-// {
-// 	t_list	*temp;
-
-// 	temp = (*lst);
-// 	if (!(*lst))
-// 		return (NULL);
-// 	while (temp->next)
-// 		temp = temp->next;
-// 	return (temp);
-// }
 
 t_list	*lst_last(t_list *lst)
 {
@@ -66,10 +50,10 @@ t_list	*lst_last(t_list *lst)
 
 void	lst_add_back(t_list **lst, t_list *new)
 {
-	t_list *last;
+	t_list	*last;
 
 	if (!(lst))
-		return;
+		return ;
 	if (!(*lst))
 		*lst = new;
 	else
@@ -87,24 +71,4 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-char	*ft_strdup(char *str)
-{
-	int		i;
-	char	*dest;
-	int		size;
-
-	i = 0;
-	size = ft_strlen(str);
-	dest = (char *)malloc(sizeof(char) * (size + 1));
-	if (!dest)
-		return (NULL);
-	while (str[i])
-	{
-		dest[i] = str[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
 }

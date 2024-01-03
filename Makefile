@@ -6,12 +6,12 @@
 #    By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 10:44:26 by jeguerin          #+#    #+#              #
-#    Updated: 2023/12/22 17:08:39 by jeguerin         ###   ########.fr        #
+#    Updated: 2023/12/29 15:57:27 by jeguerin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = algorithm.c handle_numbers.c  main.c push.c reverse_rotate.c rotate.c \
-		swap.c utils.c set_lst.c radix_sort.c split.c free.c
+SRCS = convert_to_num.c handle_numbers.c  main.c push.c reverse_rotate.c \
+	rotate.c swap.c utils.c set_lst.c radix_sort.c split.c free.c utils_2.c
 
 CC = gcc
 RM = rm -f
