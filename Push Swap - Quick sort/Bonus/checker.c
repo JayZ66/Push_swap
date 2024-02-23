@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeguerin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:06:56 by jeguerin          #+#    #+#             */
-/*   Updated: 2024/01/16 16:41:32 by jeguerin         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:36:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void	check_final_stack(t_list **lsta, t_list **lstb, int i, char *str)
 		write(1, "KO\n", 3);
 	if (str)
 		free(str);
-	if (!(*lsta) || !(*lstb))
-		return ;
 	del_nodes(lsta);
 	del_nodes(lstb);
 }
@@ -110,5 +108,5 @@ int	main(int argc, char **argv)
 		result = get_next_line(0);
 	}
 	argc = is_sorted(lsta, lstb);
-	return (check_final_stack(&lsta, &lstb, argc, argv[0]), 0);
+	return (check_final_stack(&lsta, &lstb, argc, result), 0);
 }
